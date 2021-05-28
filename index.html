@@ -2,11 +2,12 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>颜色卡片</title>
+        <title>玖色卡片</title>
+        <link rel="shortcut icon" type="image/x-icon" href="title.png"/>
         <style type="text/css">
             .center-in-center{
             	position: absolute;
-            	top: 40%;
+            	top: 30%;
             	left: 50%;
             	-webkit-transform: translate(-50%, -50%);
             	-moz-transform: translate(-50%, -50%);
@@ -17,76 +18,174 @@
         </style>
         <script type="text/javascript">
             var before_color = 10;
+            var c1, c2, c3, c4, c5;
             
-            function rand( min,max ){
+            function rand(min, max){
                  return Math.round(Math.random()*(max-min) + min)
             }
+            
+            function getColorcode(c){
+                if(c == 0){
+                    c_code = "red";
+                }
+                if(c == 1){
+                    c_code = "#70ad47";
+                }
+                if(c == 2){
+                    c_code = "#76aad8";
+                }
+                if(c == 3){
+                    c_code = "yellow";
+                }
+                if(c == 4){
+                    c_code = "#ca64ea";
+                }
+                if(c == 5){
+                    c_code = "#fafafa";
+                }
+                if(c == 6){
+                    c_code = "pink";
+                }
+                if(c == 7){
+                    c_code = "black";
+                }
+                if(c == 8){
+                    c_code = "#6d5826";
+                }
+                return c_code;
+            }
+            
+            function getColor(c){
+                if(c == 0){
+                    c_text = "红";
+                }
+                if(c == 1){
+                    c_text = "绿";
+                }
+                if(c == 2){
+                    c_text = "蓝";
+                }
+                if(c == 3){
+                    c_text = "黄";
+                }
+                if(c == 4){
+                    c_text = "紫";
+                }
+                if(c == 5){
+                    c_text = "白";
+                }
+                if(c == 6){
+                    c_text = "粉";
+                }
+                if(c == 7){
+                    c_text = "黑";
+                }
+                if(c == 8){
+                    c_text = "棕";
+                }
+                return c_text;
+            }
+            
             function ss(){
+                // 清空上一个答案
+                answ = document.getElementById("ans");
+                answ.innerHTML = "  ";
+                
+                // 背景色
                 var bd = document.getElementById("bd");
                 var rdnum = 0;
-                rdnum = rand(0, 3);
+                rdnum = rand(-0.5, 8.499);
                 while(rdnum == before_color){
-                    rdnum = rand(0, 3);
+                    rdnum = rand(-0.5, 8.499);
                 }
                 before_color = rdnum;
-                if(rdnum == 0){
-                    bd.style.backgroundColor = "#ff3e3e";
-                }
-                if(rdnum == 1){
-                    bd.style.backgroundColor = "#70ad47";
-                }
-                if(rdnum == 2){
-                    bd.style.backgroundColor = "#76aad8";
-                }
-                if(rdnum == 3){
-                    bd.style.backgroundColor = "#f7b63e";
-                }
+                bd.style.backgroundColor = getColorcode(rdnum);
                 
+                
+                // ct1
                 var divc = document.getElementById("ct");
-                var rdnum2 = 0;
-                rdnum2 = rand(0, 3);
-                while(rdnum2 == rdnum){
-                    rdnum2 = rand(0, 3);
-                }
-                if(rdnum2 == 0){
-                    divc.style.color = "#ff3e3e";
-                }
-                if(rdnum2 == 1){
-                    divc.style.color = "#70ad47";
-                }
-                if(rdnum2 == 2){
-                    divc.style.color = "#76aad8";
-                }
-                if(rdnum2 == 3){
-                    divc.style.color = "#f7b63e";
-                }
+                var rdnum2;
+                var rdnum3;
                 
-                var rdnum3 = 0;
-                rdnum3 = rand(0, 3);
-                while(rdnum2 == rdnum || rdnum3 == rdnum2){
-                    rdnum3 = rand(0, 3);
+                rdnum2 = rand(-0.5, 8.499);
+                while(rdnum2 == before_color){
+                    rdnum2 = rand(-0.5, 8.499);
                 }
-                if(rdnum3 == 0){
-                    divc.innerHTML = "红色";
+                c1 = rdnum2;
+                divc.style.color = getColorcode(c1);
+                rdnum3 = rand(-0.5, 8.499);
+                divc.innerHTML = getColor(rdnum3);
+                
+                // ct2
+                divc = document.getElementById("ct2");
+                rdnum2 = rand(-0.5, 8.499);
+                while(rdnum2 == before_color){
+                    rdnum2 = rand(-0.5, 8.499);
                 }
-                if(rdnum3 == 1){
-                    divc.innerHTML = "绿色";
+                c2 = rdnum2;
+                divc.style.color = getColorcode(c2);
+                rdnum3 = rand(-0.5, 8.499);
+                divc.innerHTML = getColor(rdnum3);
+                
+                // ct3
+                divc = document.getElementById("ct3");
+                rdnum2 = rand(-0.5, 8.499);
+                while(rdnum2 == before_color){
+                    rdnum2 = rand(-0.5, 8.499);
                 }
-                if(rdnum3 == 2){
-                    divc.innerHTML = "蓝色";
+                c3 = rdnum2;
+                divc.style.color = getColorcode(c3);
+                rdnum3 = rand(-0.5, 8.499);
+                divc.innerHTML = getColor(rdnum3);
+                
+                // ct4
+                divc = document.getElementById("ct4");
+                rdnum2 = rand(-0.5, 8.499);
+                while(rdnum2 == before_color){
+                    rdnum2 = rand(-0.5, 8.499);
                 }
-                if(rdnum3 == 3){
-                    divc.innerHTML = "黄色";
+                c4 = rdnum2;
+                divc.style.color = getColorcode(c4);
+                rdnum3 = rand(-0.5, 8.499);
+                divc.innerHTML = getColor(rdnum3);
+                
+                // ct5
+                divc = document.getElementById("ct5");
+                rdnum2 = rand(-0.5, 8.499);
+                while(rdnum2 == before_color){
+                    rdnum2 = rand(-0.5, 8.499);
                 }
+                c5 = rdnum2;
+                divc.style.color = getColorcode(c5);
+                rdnum3 = rand(-0.5, 8.499);
+                divc.innerHTML = getColor(rdnum3);
             }
+            
+            function an(){
+                answ.style.color = "black";
+                if(before_color == 7){
+                    answ.style.color = "white";
+                }
+                answ = document.getElementById("ans");
+                answ.innerHTML = getColor(c1) + getColor(c2) + getColor(c3) + getColor(c4) + getColor(c5);
+            }
+            
         </script>
     </head>
     <body id="bd">
-        <div class="center-in-center" style="width: 200px; height: 50px;" align="center">
-            <div id="ct" align="center" style="font-size: 70px;">随机</div>
+        <div align="center"><img src="pic.jpg"/></div>
+        <div class="center-in-center" style="width: 1000px; height: 50px;" align="center">
+            <b><font id="ct" align="center" style="font-size: 100px;">黑</font></b>
+            <b><font id="ct2" align="center" style="font-size: 100px;">黑</font></b>
+            <b><font id="ct3" align="center" style="font-size: 100px;">黑</font></b>
+            <b><font id="ct4" align="center" style="font-size: 100px;">黑</font></b>
+            <b><font id="ct5" align="center" style="font-size: 100px;">黑</font></b>
             </BR></BR></BR></BR>
-            <input style="width: 100px; height: 50px;" type="button" value="start" onclick="ss()" align="center">
+            <input style="width: 200px; height: 50px;" type="button" value="Click It" onclick="ss()" align="center">
+            </BR></BR>
+            <input style="width: 200px; height: 50px;" type="button" value="Show the Answer" onclick="an()" align="center">
+            </BR></BR>
+            <b><font id="ans" align="center" style="font-size: 50px;">  </font></b>
         </div>
-        
     </body>
 </html>
