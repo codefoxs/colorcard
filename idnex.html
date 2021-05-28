@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>颜色卡片</title>
+        <style type="text/css">
+            .center-in-center{
+            	position: absolute;
+            	top: 40%;
+            	left: 50%;
+            	-webkit-transform: translate(-50%, -50%);
+            	-moz-transform: translate(-50%, -50%);
+            	-ms-transform: translate(-50%, -50%);
+            	-o-transform: translate(-50%, -50%);
+            	transform: translate(-50%, -50%);
+            }
+        </style>
+        <script type="text/javascript">
+            var before_color = 10;
+            
+            function rand( min,max ){
+                 return Math.round(Math.random()*(max-min) + min)
+            }
+            function ss(){
+                var bd = document.getElementById("bd");
+                var rdnum = 0;
+                rdnum = rand(0, 3);
+                while(rdnum == before_color){
+                    rdnum = rand(0, 3);
+                }
+                before_color = rdnum;
+                if(rdnum == 0){
+                    bd.style.backgroundColor = "#ff3e3e";
+                }
+                if(rdnum == 1){
+                    bd.style.backgroundColor = "#70ad47";
+                }
+                if(rdnum == 2){
+                    bd.style.backgroundColor = "#76aad8";
+                }
+                if(rdnum == 3){
+                    bd.style.backgroundColor = "#f7b63e";
+                }
+                
+                var divc = document.getElementById("ct");
+                var rdnum2 = 0;
+                rdnum2 = rand(0, 3);
+                while(rdnum2 == rdnum){
+                    rdnum2 = rand(0, 3);
+                }
+                if(rdnum2 == 0){
+                    divc.style.color = "#ff3e3e";
+                }
+                if(rdnum2 == 1){
+                    divc.style.color = "#70ad47";
+                }
+                if(rdnum2 == 2){
+                    divc.style.color = "#76aad8";
+                }
+                if(rdnum2 == 3){
+                    divc.style.color = "#f7b63e";
+                }
+                
+                var rdnum3 = 0;
+                rdnum3 = rand(0, 3);
+                while(rdnum2 == rdnum || rdnum3 == rdnum2){
+                    rdnum3 = rand(0, 3);
+                }
+                if(rdnum3 == 0){
+                    divc.innerHTML = "红色";
+                }
+                if(rdnum3 == 1){
+                    divc.innerHTML = "绿色";
+                }
+                if(rdnum3 == 2){
+                    divc.innerHTML = "蓝色";
+                }
+                if(rdnum3 == 3){
+                    divc.innerHTML = "黄色";
+                }
+            }
+        </script>
+    </head>
+    <body id="bd">
+        <div class="center-in-center" style="width: 200px; height: 50px;" align="center">
+            <div id="ct" align="center" style="font-size: 70px;">随机</div>
+            </BR></BR></BR></BR>
+            <input style="width: 100px; height: 50px;" type="button" value="start" onclick="ss()" align="center">
+        </div>
+        
+    </body>
+</html>
