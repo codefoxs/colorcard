@@ -1,3 +1,3 @@
 ## Welcome to GitHub Pages
 
-https://codefoxs.github.io/colorcard/
+玖色卡片：https://codefoxs.github.io/colorcard/
